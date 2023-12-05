@@ -18,6 +18,8 @@ def canUnlockAll(boxes):
 
     if type(boxes) != list:
         return False
+    if len(boxes) == 0:
+        return True
     unlocked = [False] * len(boxes)
     unlockedCount = 1
     unlocked[0] = True
@@ -34,7 +36,6 @@ def canUnlockAll(boxes):
                 unlockedCount += 1
         done += 1
 
-    for boxState in unlocked:
-        if not boxState:
-            return False
+    if unlockedCount < len(boxes):
+        return False
     return True
