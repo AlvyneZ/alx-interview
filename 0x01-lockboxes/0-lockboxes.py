@@ -30,7 +30,7 @@ def canUnlockAll(boxes):
         if type(boxes[current[done]]) != list:
             return False
         for key in boxes[current[done]]:
-            if (not unlocked[key]):
+            if (key < len(boxes)) and (not unlocked[key]):
                 current.append(key)
                 unlocked[key] = True
                 unlockedCount += 1
