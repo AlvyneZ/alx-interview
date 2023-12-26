@@ -58,10 +58,9 @@ def parse_logs():
                     (sections[8][-1] != '\n')):
                 continue
             try:
-                file_size = int(sections[8][:-1])
+                total_size += int(sections[8][:-1])
             except:
-                continue
-            total_size += file_size
+                pass
             status_count[sections[7]] += 1
             count += 1
             if count % 10 == 0:
