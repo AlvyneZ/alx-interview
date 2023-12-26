@@ -49,6 +49,8 @@ def parse_logs():
             sections = log.split(' ')
             if ((len(sections) != 9) or
                     (sections[1] != '-') or
+                    (sections[2][0] != '[') or
+                    (sections[3][-1] != ']') or
                     (sections[4] != '"GET') or
                     (sections[5] != '/projects/260') or
                     (sections[6] != 'HTTP/1.1"') or
