@@ -56,13 +56,14 @@ def parse_logs():
                     (sections[7] not in status_count.keys())):
                 pass
             try:
-                total_size += int(sections[8])
+                total_size += int(sections[8][:-1])
             except TypeError:
                 pass
             status_count[sections[7]] += 1
             count += 1
             if count % 10 == 0:
                 print_stats()
+        print_stats()
     except KeyboardInterrupt:
         print_stats()
         raise
