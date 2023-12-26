@@ -33,7 +33,6 @@ def print_stats():
             print("{}: {}".format(status, status_count[status]))
 
 
-
 def parse_logs():
     """
     Goes through the logs inputted via stdin, Printing out
@@ -53,7 +52,8 @@ def parse_logs():
                     (sections[4] != '"GET') or
                     (sections[5] != '/projects/260') or
                     (sections[6] != 'HTTP/1.1"') or
-                    (sections[7] not in status_count.keys())):
+                    (sections[7] not in status_count.keys()) or
+                    (sections[8][-1] != '\n')):
                 pass
             try:
                 total_size += int(sections[8][:-1])
