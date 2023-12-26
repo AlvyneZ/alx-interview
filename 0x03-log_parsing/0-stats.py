@@ -57,7 +57,7 @@ def parse_logs():
                 pass
             try:
                 total_size += int(sections[8][:-1])
-            except ValueError:
+            except:
                 pass
             status_count[sections[7]] += 1
             count += 1
