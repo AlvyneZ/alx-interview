@@ -51,9 +51,6 @@ def parse_logs():
                     (sections[1] != '-') or
                     (sections[2][0] != '[') or
                     (sections[3][-1] != ']') or
-                    (sections[4] != '"GET') or
-                    (sections[5] != '/projects/260') or
-                    (sections[6] != 'HTTP/1.1"') or
                     (sections[7] not in status_count.keys()) or
                     (sections[8][-1] != '\n')):
                 pass
