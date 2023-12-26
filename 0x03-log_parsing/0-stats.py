@@ -8,8 +8,8 @@ from sys import stdin
 from typing import Dict
 
 
-total_size: int = 0
-status_count: Dict[str, int] = {
+total_size = 0
+status_count = {
     "200": 0,
     "301": 0,
     "400": 0,
@@ -42,7 +42,7 @@ def parse_logs():
     """
     global total_size
     global status_count
-    count: int = 0
+    count = 0
 
     try:
         for log in stdin:
@@ -57,7 +57,7 @@ def parse_logs():
                 pass
             try:
                 total_size += int(sections[8][:-1])
-            except TypeError:
+            except ValueError:
                 pass
             status_count[sections[7]] += 1
             count += 1
