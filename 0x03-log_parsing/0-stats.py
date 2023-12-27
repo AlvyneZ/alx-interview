@@ -47,21 +47,18 @@ def parse_logs():
     try:
         for log in stdin:
             url_split = log.split('] "GET /projects/260 HTTP/1.1" ')
-            if (len(url_split) != 2):
-                continue
-            ip_date = url_split[0].split(' - [')
-            if (len(ip_date) != 2):
-                continue
-            status_file = url_split[1].split(' ')
-            if ((len(status_file) != 2) or
-                    (status_file[1][-1] != '\n') or
-                    (status_file[0] not in status_count.keys())):
-                continue
-            try:
-                total_size += int(status_file[1][:-1])
-            except:
-                pass
-            status_count[status_file[0]] += 1
+            if (len(url_split) == 2):
+                ip_date = url_split[0].split(' - [')
+                if (len(ip_date) == 2):
+                    status_file = url_split[1].split(' ')
+                    if ((len(status_file) == 2) and
+                            (status_file[1][-1] == '\n') and
+                            (status_file[0] in status_count.keys())):
+                        try:
+                            total_size += int(status_file[1][:-1])
+                            status_count[status_file[0]] += 1
+                        except ValueError:
+                            pass
             count += 1
             if count % 10 == 0:
                 print_stats()
