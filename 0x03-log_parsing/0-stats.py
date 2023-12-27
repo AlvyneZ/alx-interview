@@ -56,9 +56,9 @@ def parse_logs():
                             (status_file[0] in status_count.keys())):
                         try:
                             total_size += int(status_file[1][:-1])
-                            status_count[status_file[0]] += 1
                         except ValueError:
                             pass
+                        status_count[status_file[0]] += 1
             count += 1
             if count % 10 == 0:
                 print_stats()
