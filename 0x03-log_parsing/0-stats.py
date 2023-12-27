@@ -46,22 +46,22 @@ def parse_logs():
 
     try:
         for log in stdin:
-            sections = log.split(' ')
-            if ((len(sections) != 9) or
-                    (sections[1] != '-') or
-                    (sections[2][0] != '[') or
-                    (sections[3][-1] != ']') or
-                    (sections[4] != '"GET') or
-                    (sections[5] != '/projects/260') or
-                    (sections[6] != 'HTTP/1.1"') or
-                    (sections[7] not in status_count.keys()) or
-                    (sections[8][-1] != '\n')):
+            url_split = log.split('] "GET /projects/260 HTTP/1.1" ')
+            if (len(url_split) != 2):
+                continue
+            ip_date = url_split[0].split(' - [')
+            if (len(ip_date) != 2):
+                continue
+            status_file = url_split[1].split(' ')
+            if ((len(status_file) != 2) or
+                    (status_file[1][-1] != '\n') or
+                    (status_file[0] not in status_count.keys())):
                 continue
             try:
-                total_size += int(sections[8][:-1])
+                total_size += int(status_file[1][:-1])
             except:
                 pass
-            status_count[sections[7]] += 1
+            status_count[status_file[0]] += 1
             count += 1
             if count % 10 == 0:
                 print_stats()
