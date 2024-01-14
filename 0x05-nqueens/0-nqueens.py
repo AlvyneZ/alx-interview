@@ -17,8 +17,8 @@ class Board:
         Args:
             N (int): board size
         """
-        self.N: int = N
-        self.queenCol: List[int] = [-1] * N
+        self.N = N
+        self.queenCol = [-1] * N
 
     def __repr__(self) -> str:
         """Gives the official representation of the board
@@ -72,7 +72,7 @@ def solve(N: int) -> List[Board]:
     Returns:
         List[Board]: all possible solutions
     """
-    validBoards: List[Board] = []
+    validBoards = []
     board = Board(N)
 
     def solveRow(b: Board, row: int) -> None:
