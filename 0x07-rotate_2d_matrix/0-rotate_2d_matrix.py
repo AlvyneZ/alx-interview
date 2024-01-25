@@ -5,7 +5,7 @@
 """
 
 
-def rotate_2d_matrix(m: list[list[int]]) -> None:
+def rotate_2d_matrix(m):
     """Rotates a matrix 90 degrees clockwise in place
 
     Args:
