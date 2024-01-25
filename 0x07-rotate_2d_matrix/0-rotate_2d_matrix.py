@@ -3,10 +3,9 @@
 0-rotate_2d_matrix.py - Provides a method:
  rotate_2d_matrix()
 """
-from typing import List
 
 
-def rotate_2d_matrix(m: List[List[int]]) -> None:
+def rotate_2d_matrix(m: list[list[int]]) -> None:
     """Rotates a matrix 90 degrees clockwise in place
 
     Args:
