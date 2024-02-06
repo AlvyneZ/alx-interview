@@ -5,17 +5,14 @@
 """
 
 
-from typing import List
-
-
-def island_perimeter(grid: List[List[int]]) -> int:
+def island_perimeter(grid: list[list[int]]) -> int:
     """
     Given a grid of 1's and 0's connected horizontally and
      vertically, this method calulates the perimeter of an
      island of 1's
 
     Args:
-        grid (List[List[int]]): the 1's and 0's
+        grid (list[list[int]]): the 1's and 0's
 
     Returns:
         int: the perimeter of the island
