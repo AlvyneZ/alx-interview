@@ -5,7 +5,7 @@
 """
 
 
-def island_perimeter(grid: list[list[int]]) -> int:
+def island_perimeter(grid):
     """
     Given a grid of 1's and 0's connected horizontally and
      vertically, this method calulates the perimeter of an
