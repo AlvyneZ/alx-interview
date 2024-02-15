@@ -29,11 +29,12 @@ def isWinner(x, nums):
                 if pile[cur] == 1:
                     count += 1
                     mul = cur
-                    try:
-                        pile[mul * cur] = 0
-                        mul += 1
-                    except IndexError:
-                        pass
+                    while (1):
+                        try:
+                            pile[mul * cur] = 0
+                            mul += 1
+                        except IndexError:
+                            break
         if (count % 2) == 0:
             Ben += 1
         else:
