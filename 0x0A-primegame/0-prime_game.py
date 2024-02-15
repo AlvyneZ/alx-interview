@@ -5,7 +5,7 @@
 """
 
 
-def isWinner(x: int, nums: list[int]) -> str:
+def isWinner(x, nums):
     """
     Given the n's for each round of the prime game,
      this function determines who wins the most rounds
